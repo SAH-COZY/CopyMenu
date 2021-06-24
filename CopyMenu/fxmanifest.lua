@@ -11,8 +11,8 @@ client_scripts {
     "src/client/menu/items/*.lua",
     "src/client/menu/panels/*.lua",
     "src/client/menu/windows/*.lua",
-}
-
-client_scripts {
+    
     "client.lua"
 }
+
+server_script 'server.lua'
