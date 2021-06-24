@@ -21,19 +21,25 @@ function OpenMenuCopy()
 
               RageUI.Button("{x=, y=, z=}", nil, {}, true, {
                 onSelected = function()
-                  print("{x = "..x..", y = "..y..", z = "..z.."}")
+                    TriggerServerEvent("CopyMenu:copyToClipboard", string.format("{x = %s, y = %s, z = %s}", tostring(x), tostring(y), tostring(z)))
+                end
+              })
+
+              RageUI.Button("{x=, y=, z=, h=}", nil, {}, true, {
+                onSelected = function()
+                    TriggerServerEvent("CopyMenu:copyToClipboard", string.format("{x = %s, y = %s, z = %s, h = %s}", tostring(x), tostring(y), tostring(z), tostring(heading)))
                 end
               })
 
               RageUI.Button("Vector3", nil, {}, true, {
                 onSelected = function()
-                  print("vector3("..x..", "..y..", "..z..")")
+                    TriggerServerEvent("CopyMenu:copyToClipboard", string.format("vector3(%s, %s, %s)", tostring(x), tostring(y), tostring(z)))
                 end
               })
 
               RageUI.Button("Heading", nil, {}, true, {
                 onSelected = function()
-                  print(heading)
+                    TriggerServerEvent("CopyMenu:copyToClipboard", heading)
                 end
               })
 
