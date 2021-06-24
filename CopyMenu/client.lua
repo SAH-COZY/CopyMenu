@@ -14,28 +14,26 @@ function OpenMenuCopy()
          RageUI.Visible(copymenu, true)
          CreateThread(function()
          while open do 
+          local coords = GetEntityCoords(PlayerPedId())
+          local x, y, z = table.unpack(coords)
+          local heading = GetEntityHeading(PlayerPedId())
             RageUI.IsVisible(copymenu,function() 
 
               RageUI.Button("{x=, y=, z=}", nil, {}, true, {
                 onSelected = function()
-                  local Coords = GetEntityCoords(PlayerPedId())
-                  local x, y, z = table.unpack(Coords)
                   print("{x = "..x..", y = "..y..", z = "..z.."}")
                 end
               })
 
               RageUI.Button("Vector3", nil, {}, true, {
                 onSelected = function()
-                  local Coords = GetEntityCoords(PlayerPedId())
-                  local x, y, z = table.unpack(Coords)
                   print("vector3("..x..", "..y..", "..z..")")
                 end
               })
 
               RageUI.Button("Heading", nil, {}, true, {
                 onSelected = function()
-                  local Heading = GetEntityHeading(PlayerPedId())
-                  print(Heading)
+                  print(heading)
                 end
               })
 
